@@ -13,14 +13,21 @@ data class LinguagemProgramacao(
 )
 
 class LinguagemProgramacaoAdapter(
-    val items: List<LinguagemProgramacao>
+    val items: List<LinguagemProgramacao>,
+    val listener: (LinguagemProgramacao) -> Unit
 ) : RecyclerView.Adapter<LinguagemProgramacaoAdapter.ViewHolder>() {
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindView(item: LinguagemProgramacao) = with(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bindView(
+            item: LinguagemProgramacao
+        ) = with(itemView) {
             tvTitulo.text = item.titulo
             tvAno.text = item.ano.toString()
             tvDescricao.text = item.descricao
+
+            setOnClickListener {
+                listener(item)
+            }
         }
     }
 
