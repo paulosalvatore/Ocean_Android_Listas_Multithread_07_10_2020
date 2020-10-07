@@ -1,6 +1,8 @@
 package com.oceanbrasil.ocean_android_listas_multithread_07_10_2020
 
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 data class LinguagemProgramacao(
@@ -13,5 +15,24 @@ class LinguagemProgramacaoAdapter(
     val items: List<LinguagemProgramacao>
 ) : RecyclerView.Adapter<LinguagemProgramacaoAdapter.ViewHolder>() {
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bindView(item: LinguagemProgramacao) {
+
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.linguagem_programacao_item, parent, false)
+
+        return ViewHolder(view)
+    }
+
+    override fun getItemCount() = items.count()
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = items[position]
+
+        holder.bindView(item)
+    }
 }
