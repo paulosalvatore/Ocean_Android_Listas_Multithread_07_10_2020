@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.linguagem_programacao_item.view.*
 
 data class LinguagemProgramacao(
     val titulo: String,
@@ -16,8 +17,10 @@ class LinguagemProgramacaoAdapter(
 ) : RecyclerView.Adapter<LinguagemProgramacaoAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindView(item: LinguagemProgramacao) {
-
+        fun bindView(item: LinguagemProgramacao) = with(itemView) {
+            tvTitulo.text = item.titulo
+            tvAno.text = item.ano.toString()
+            tvDescricao.text = item.descricao
         }
     }
 
