@@ -48,6 +48,17 @@ class MultithreadActivity : AppCompatActivity() {
 //        Thread.sleep(500)
 
         tvPrincipal.text = "Texto inicial 2"
+
+        /*
+        Processamento paralelo ou operações longas (outras abordagens):
+
+        RxJava, RxAndroid, RxKotlin
+
+        Services -> Android
+
+        AsyncTask -> Quando eu quero controlar um pouco melhor o antes e depois das minhas operações, por exemplo, quero mostrar uma barra de progresso e preparar o app antes da operação. TEM UM CONTROLE MELHOR DO PROCESSO ACONTECENDO
+
+         */
     }
 
     private fun carregarImagem(urlImagem: String) = try {
